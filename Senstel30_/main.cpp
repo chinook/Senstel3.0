@@ -132,7 +132,6 @@ void main_acquisition()
 #endif
         
         // Pitch
-        static uint32_t encoder_value = 0;
         unsigned int pitch_data = 0;
         for(int i = 0; i < 12; ++i)
         {
@@ -143,7 +142,7 @@ void main_acquisition()
             wait_us(1);
             pitch_data |= pitch_input;
         }
-        encoder_value = pitch_data;
+        sensors.pitch = pitch_data;
     }
 }
 
@@ -203,7 +202,7 @@ int main()
             pc.printf("RPM = %f rpm\n\r", sensors.rpm_rotor);
             pc.printf("Wind direction = %f degs\n\r", sensors.wind_direction);
             pc.printf("Wind speed = %f knots\n\r", sensors.wind_speed);
-            pc.printf("Pitch = %d degs\n\r", sensors.pitch);
+            pc.printf("Pitch = %d \n\r", sensors.pitch);
         }
         wait_ms(5);
     }
