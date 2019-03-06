@@ -29,6 +29,10 @@ AnalogIn torque_adc(A1);
 Serial weather_station(PE_8, PE_7, 4800); // RX = PE_7, TX = PE_8
 InterruptIn rpm_pin(PF_13);
 
+// Pitch position encoder
+DigitalOut pitch_clock(PE_15);
+DigitalIn pitch_input(PE_7);
+
 // Outputs
 Serial pc(USBTX, USBRX, 115200);
 
@@ -64,7 +68,7 @@ void main_data_out();
 // Weather station thread
 void ws_acquisition()
 {
-    while (true) 
+    while (true)
     {
         wait_ms(2); // Lessen the load on the uC
         if(weather_station.readable())
@@ -111,10 +115,10 @@ void main_acquisition()
     {
         // Torque
         sensors.torque = torque_adc.read();
-    
+        
         // Load Cell
         sensors.loadcell = loadcell_adc.read();
-    
+        
         // RPM
         sensors.rpm_rotor = (float)rpm_counter * 1000.0f / (float)TIME_ACQ;
 #ifndef RPM_KHZ_OUTPUT
@@ -126,28 +130,42 @@ void main_acquisition()
 #ifdef LED_DEBUG
         led2 = !led2;
 #endif
+        
+        // Pitch
+        static uint32_t encoder_value = 0;
+        unsigned int pitch_data = 0;
+        for(int i = 0; i < 12; ++i)
+        {
+            pitch_data <<= 1;
+            pitch_clock = 0;
+            wait_us(1);
+            pitch_clock = 1;
+            wait_us(1);
+            pitch_data |= pitch_input;
+        }
+        encoder_value = pitch_data;
     }
 }
 
 // Analyzes the data and sends it out
 void main_data_out()
-{   
+{
     while(1)
     {
 #ifdef LED_DEBUG
         led3 = !led3;
 #endif
-    
+        
         // Out PC
         // We cant call printf in an interrupt, so we flag it for main.
         flag_pc_out = true;
-    
+        
         // Out CAN
         // TODO
-    
+        
         // Out LoRa
         // TODO
-    
+        
         // Out SD
         // TODO
         
@@ -170,7 +188,7 @@ int main()
     static char clear_str[] = "x[2Jx[H";
     clear_str[0] = clear_str[4] = 27; // ESC character replaces the x's
     
-    while (true) 
+    while (true)
     {
         if(flag_pc_out)
         {
@@ -190,3 +208,4 @@ int main()
         wait_ms(5);
     }
 }
+
