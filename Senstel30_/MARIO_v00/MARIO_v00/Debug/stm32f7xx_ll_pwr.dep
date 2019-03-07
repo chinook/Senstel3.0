@@ -1,0 +1,2 @@
+Debug/stm32f7xx_ll_pwr.o: \
+ C:/Users/Alfred/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.mbed/targets/TARGET_STM/TARGET_STM32F7/device/stm32f7xx_ll_pwr.c

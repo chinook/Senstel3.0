@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MARIO_v00", "MARIO_v00\MARIO_v00.vcxproj", "{9009F7D3-335E-4EAB-AC85-96517C1B378E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9009F7D3-335E-4EAB-AC85-96517C1B378E}.Debug|x64.ActiveCfg = Debug|Win32
+		{9009F7D3-335E-4EAB-AC85-96517C1B378E}.Debug|x86.ActiveCfg = Debug|Win32
+		{9009F7D3-335E-4EAB-AC85-96517C1B378E}.Debug|x86.Build.0 = Debug|Win32
+		{9009F7D3-335E-4EAB-AC85-96517C1B378E}.Release|x64.ActiveCfg = Release|Win32
+		{9009F7D3-335E-4EAB-AC85-96517C1B378E}.Release|x86.ActiveCfg = Release|Win32
+		{9009F7D3-335E-4EAB-AC85-96517C1B378E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {451229C5-CB8E-4DC4-A285-04220E2A6DAD}
+	EndGlobalSection
+EndGlobal

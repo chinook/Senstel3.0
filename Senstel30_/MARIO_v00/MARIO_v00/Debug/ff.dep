@@ -1,0 +1,6 @@
+Debug/ff.o: \
+ C:/Users/Alfred/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.mbed/features/filesystem/fat/ChaN/ff.cpp \
+ C:/Users/Alfred/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.mbed/features/filesystem/fat/ChaN/ff.h \
+ C:/Users/Alfred/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.mbed/features/filesystem/fat/ChaN/integer.h \
+ C:/Users/Alfred/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.mbed/features/filesystem/fat/ChaN/ffconf.h \
+ C:/Users/Alfred/AppData/Local/VisualGDB/EmbeddedBSPs/arm-eabi/com.sysprogs.arm.mbed/features/filesystem/fat/ChaN/diskio.h
